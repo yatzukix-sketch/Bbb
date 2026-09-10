@@ -1,0 +1,201 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  color-scheme: dark;
+  --bg: #000000;
+  --bg-elevated: #1c1c1e;
+  --bg-grouped: #000000;
+  --bg-secondary: #2c2c2e;
+  --bg-tertiary: #3a3a3c;
+  --fill: rgba(120, 120, 128, 0.2);
+  --fill-2: rgba(120, 120, 128, 0.36);
+  --label: #ffffff;
+  --label-2: rgba(235, 235, 245, 0.6);
+  --label-3: rgba(235, 235, 245, 0.3);
+  --separator: rgba(84, 84, 88, 0.65);
+  --separator-opaque: #38383a;
+  --blue: #0a84ff;
+  --blue-fill: rgba(10, 132, 255, 0.18);
+  --red: #ff453a;
+  --orange: #ff9f0a;
+  --yellow: #ffd60a;
+  --green: #30d158;
+  --mint: #63e6e2;
+  --teal: #40c8e0;
+  --cyan: #64d2ff;
+  --indigo: #5e5ce6;
+  --purple: #bf5af2;
+  --pink: #ff375f;
+  --brown: #ac8e68;
+  --accent: #ff375f;
+  --accent-2: #ff9f0a;
+  --glass: rgba(28, 28, 30, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --radius-full: 999px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --tab-h: 52px;
+  --nav-h: 52px;
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+    'Segoe UI', system-ui, sans-serif;
+  --mono: 'SF Mono', ui-monospace, 'JetBrains Mono', Menlo, monospace;
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --spring: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  height: 100%;
+  height: -webkit-fill-available;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  min-height: -webkit-fill-available;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--label);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+  overscroll-behavior: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#root {
+  height: 100dvh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+textarea,
+input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+textarea {
+  resize: none;
+}
+
+code,
+.mono {
+  font-family: var(--mono);
+}
+
+/* iOS-like momentum scroll */
+.scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+  scrollbar-width: none;
+}
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Press feedback */
+.pressable {
+  transition: transform 0.18s var(--spring), opacity 0.18s ease;
+}
+.pressable:active {
+  transform: scale(0.97);
+  opacity: 0.88;
+}
+
+/* Glass material */
+.glass {
+  background: var(--glass);
+  -webkit-backdrop-filter: saturate(180%) blur(28px);
+  backdrop-filter: saturate(180%) blur(28px);
+  border: 0.5px solid var(--glass-border);
+}
+
+@keyframes ios-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ios-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes ios-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ios-ping {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 55, 95, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 10px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+@keyframes ios-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
