@@ -187,8 +187,9 @@ export function PreviewStage({
             </button>
             <button
               type="button"
-              className="play-btn"
+              className="play-btn pressable"
               onClick={() => (playing ? onPause() : onPlay())}
+              aria-label={playing ? c.pause : c.play}
             >
               {playing ? <Pause size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" />}
               <span>{playing ? c.pause : c.play}</span>
